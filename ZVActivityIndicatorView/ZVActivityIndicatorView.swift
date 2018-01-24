@@ -167,7 +167,7 @@ private extension ZVActivityIndicatorView {
     
     func _prepare() {
         
-        self.color = .clear
+        self.backgroundColor = .clear
 
         self.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         
