@@ -2,7 +2,7 @@
 //  ZVActivityIndicatorView.h
 //  ZVActivityIndicatorView
 //
-//  Created by 张伟 on 24/01/2018.
+//  Created by zevwings on 24/01/2018.
 //  Copyright © 2018 zevwings. All rights reserved.
 //
 

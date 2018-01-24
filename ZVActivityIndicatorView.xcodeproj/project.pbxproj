@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		4D75A4CA201833AE00775C60 /* ZVActivityIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D75A4C8201833AE00775C60 /* ZVActivityIndicatorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4D75A4D1201833E500775C60 /* ZVActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D75A4D0201833E500775C60 /* ZVActivityIndicatorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4D75A4C5201833AE00775C60 /* ZVActivityIndicatorView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ZVActivityIndicatorView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D75A4C8201833AE00775C60 /* ZVActivityIndicatorView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZVActivityIndicatorView.h; sourceTree = "<group>"; };
 		4D75A4C9201833AE00775C60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4D75A4D0201833E500775C60 /* ZVActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZVActivityIndicatorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +49,7 @@
 			isa = PBXGroup;
 			children = (
 				4D75A4C8201833AE00775C60 /* ZVActivityIndicatorView.h */,
+				4D75A4D0201833E500775C60 /* ZVActivityIndicatorView.swift */,
 				4D75A4C9201833AE00775C60 /* Info.plist */,
 			);
 			path = ZVActivityIndicatorView;
@@ -95,6 +98,7 @@
 				TargetAttributes = {
 					4D75A4C4201833AE00775C60 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -131,6 +135,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D75A4D1201833E500775C60 /* ZVActivityIndicatorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +258,7 @@
 		4D75A4CE201833AE00775C60 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -262,10 +268,12 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = ZVActivityIndicatorView/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zevwings.ZVActivityIndicatorView;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -274,6 +282,7 @@
 		4D75A4CF201833AE00775C60 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -283,6 +292,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = ZVActivityIndicatorView/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zevwings.ZVActivityIndicatorView;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
