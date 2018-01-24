@@ -168,7 +168,8 @@ private extension ZVActivityIndicatorView {
     func _prepare() {
         
         self.color = .clear
-        print("#function : \(#function)")
+
+        self.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         
         if !_isObserved { _addObserver() }
         
@@ -185,9 +186,7 @@ private extension ZVActivityIndicatorView {
     }
     
     func _updateSharpeLayer() {
-        
-        print("#function : \(#function)")
-        
+                
         if frame == .zero { return }
         
         _sharpeLayer?.frame = .init(x: 0, y: 0, width: frame.width, height: frame.height)

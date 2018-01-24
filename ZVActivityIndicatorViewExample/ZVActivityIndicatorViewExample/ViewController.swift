@@ -14,12 +14,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var activityIndicatorView: ZVActivityIndicatorView!
     
     var indicator: ZVActivityIndicatorView?
-//    @IBOutlet weak var indicator: ZVActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        activityIndicatorView.color = .black
-//        activityIndicatorView.startAnimating()
+        activityIndicatorView.color = .black
+        activityIndicatorView.startAnimating()
 
         let x = view.frame.width / 2.0 - 158.0 / 2.0
         let y = view.frame.height / 2.0 - 158.0 / 2.0
@@ -27,7 +27,7 @@ class ViewController: UIViewController {
         indicator = ZVActivityIndicatorView(frame: .init(x: x, y: y, width: 158, height: 158))
         indicator?.color = .black
         indicator?.progress = 0.75
-//        indicator?.startAnimating()
+        indicator?.startAnimating()
         view.addSubview(indicator!)
     }
 
