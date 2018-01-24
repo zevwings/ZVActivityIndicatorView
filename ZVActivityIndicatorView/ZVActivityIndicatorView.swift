@@ -186,7 +186,7 @@ private extension ZVActivityIndicatorView {
     }
     
     func _updateSharpeLayer() {
-                
+        
         if frame == .zero { return }
         
         _sharpeLayer?.frame = .init(x: 0, y: 0, width: frame.width, height: frame.height)
@@ -212,7 +212,7 @@ private extension ZVActivityIndicatorView {
         _isObserved = true
         
         NotificationCenter.default.addObserver(self,
-                                               selector: #selector(resetAnimating),
+                                               selector: #selector(_resetAnimating),
                                                name: NSNotification.Name.UIApplicationDidBecomeActive,
                                                object: nil)
     }
@@ -222,12 +222,12 @@ private extension ZVActivityIndicatorView {
         _isObserved = false
         
         NotificationCenter.default.addObserver(self,
-                                               selector: #selector(resetAnimating),
+                                               selector: #selector(_resetAnimating),
                                                name: NSNotification.Name.UIApplicationDidBecomeActive,
                                                object: nil)
     }
     
-    @objc func resetAnimating() {
+    @objc func _resetAnimating() {
         
         if isAnimating {
             stopAnimating()
