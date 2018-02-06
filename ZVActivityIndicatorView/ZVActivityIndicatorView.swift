@@ -20,7 +20,7 @@ open class ZVActivityIndicatorView: UIView {
     private var _sharpeLayer: CAShapeLayer?
     private var _isObserved: Bool = false
     
-    public override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
         _prepare()
     }
@@ -30,7 +30,7 @@ open class ZVActivityIndicatorView: UIView {
         _prepare()
     }
     
-    open override func layoutSubviews() {
+    override open func layoutSubviews() {
         super.layoutSubviews()
         _updateSharpeLayer()
     }
@@ -81,7 +81,7 @@ extension ZVActivityIndicatorView {
         }
     }
     
-    open override var tintColor: UIColor! {
+    override open var tintColor: UIColor! {
         get {
             return _color
         }
