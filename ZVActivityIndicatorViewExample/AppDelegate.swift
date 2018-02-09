@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  ZVActivityIndicatorViewExample
 //
-//  Created by zevwings on 24/01/2018.
+//  Created by 张伟 on 09/02/2018.
 //  Copyright © 2018 zevwings. All rights reserved.
 //
 

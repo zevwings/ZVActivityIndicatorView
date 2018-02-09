@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  ZVActivityIndicatorViewExample
 //
-//  Created by zevwings on 24/01/2018.
+//  Created by 张伟 on 09/02/2018.
 //  Copyright © 2018 zevwings. All rights reserved.
 //
 
@@ -17,10 +17,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         activityIndicatorView.color = .black
         activityIndicatorView.startAnimating()
-
+        
         let x = view.frame.width / 2.0 - 158.0 / 2.0
         let y = view.frame.height / 2.0 - 158.0 / 2.0
         
@@ -30,7 +30,7 @@ class ViewController: UIViewController {
         indicator?.startAnimating()
         view.addSubview(indicator!)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

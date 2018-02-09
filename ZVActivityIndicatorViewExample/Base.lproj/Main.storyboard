@@ -27,7 +27,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.8446832299" green="0.12998357420000001" blue="0.23033288120000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="5W0-jP-se0" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="PVN-2z-xPg"/>
                             <constraint firstItem="5W0-jP-se0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="frH-pr-Iwq"/>
@@ -35,7 +35,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="activityIndicatorView" destination="5W0-jP-se0" id="f1K-1B-173"/>
+                        <outlet property="activityIndicatorView" destination="5W0-jP-se0" id="v2O-yC-cAS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
