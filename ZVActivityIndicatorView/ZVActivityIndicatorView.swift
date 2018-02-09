@@ -6,88 +6,68 @@
 //  Copyright © 2018 zevwings. All rights reserved.
 //
 
-open class ZVActivityIndicatorView: UIView {
+public class ZVActivityIndicatorView: UIView {
     
-    open private(set) var isAnimating: Bool = false
-    open var duration: TimeInterval = 1.25
-    open var timingFunction: CAMediaTimingFunction?
+    public private(set) var isAnimating: Bool = false
+    public var duration: TimeInterval = 1.25
+    public var timingFunction: CAMediaTimingFunction?
 
-    private var _strokeWidth: CGFloat = 1.0
-    private var _color: UIColor? = .white
-    private var _hidesWhenStopped: Bool = true
-    private var _progress: CGFloat = 0.0
+    public var strokeWidth: CGFloat = 1.0 {
+        didSet {
+            updateSharpeLayer()
+        }
+    }
+    
+    public var strokColor: UIColor? = .white {
+        didSet {
+            animationLayer?.strokeColor = strokColor?.cgColor
+        }
+    }
+    
+    public var hidesWhenStopped: Bool = true {
+        didSet {
+            isHidden = (!isAnimating && hidesWhenStopped)
+        }
+    }
+    
+    public var progress: CGFloat = 0.0 {
+        didSet {
+            animationLayer?.strokeEnd = progress
+        }
+    }
 
-    private var _sharpeLayer: CAShapeLayer?
-    private var _isObserved: Bool = false
+    private var animationLayer: CAShapeLayer?
+    private var isObserved: Bool = false
+    
+    deinit {
+        removeObserver()
+    }
     
     override public init(frame: CGRect) {
         super.init(frame: frame)
-        _prepare()
+        prepare()
     }
     
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        _prepare()
+        prepare()
     }
     
-    override open func layoutSubviews() {
+    override public func layoutSubviews() {
         super.layoutSubviews()
-        _updateSharpeLayer()
-    }
-    
-    deinit {
-        _removeObserver()
+        updateSharpeLayer()
     }
 }
 
 extension ZVActivityIndicatorView {
-    
-    open var progress: CGFloat {
+
+    override public var tintColor: UIColor! {
         get {
-            return _progress
+            return strokColor
         }
         set {
-            _progress = newValue
-            _sharpeLayer?.strokeEnd = newValue
-        }
-    }
-    
-    open var strokeWidth: CGFloat {
-        get {
-            return _strokeWidth
-        }
-        set {
-            _strokeWidth = newValue
-        }
-    }
-    
-    open var hidesWhenStopped: Bool {
-        get {
-            return _hidesWhenStopped
-        }
-        set {
-            _hidesWhenStopped = newValue
-            isHidden = (!isAnimating && _hidesWhenStopped)
-        }
-    }
-    
-    open var color: UIColor? {
-        get {
-            return _color
-        }
-        set {
-            _color = newValue
-            _sharpeLayer?.strokeColor = _color?.cgColor
-        }
-    }
-    
-    override open var tintColor: UIColor! {
-        get {
-            return _color
-        }
-        set {
-            _color = newValue
-            _sharpeLayer?.strokeColor = _color?.cgColor
+            strokColor = newValue
+            animationLayer?.strokeColor = strokColor?.cgColor
         }
     }
 }
@@ -96,7 +76,7 @@ public extension ZVActivityIndicatorView {
     
     func startAnimating() {
         
-        if isAnimating { return }
+        guard isAnimating == false else { return }
         
         let animation = CABasicAnimation()
         animation.keyPath = "transform.rotation"
@@ -105,7 +85,7 @@ public extension ZVActivityIndicatorView {
         animation.toValue = CGFloat(2 * Double.pi)
         animation.repeatCount = Float.infinity
         animation.isRemovedOnCompletion = false
-        _sharpeLayer?.add(animation, forKey: "com.zevwings.animation.rotate")
+        animationLayer?.add(animation, forKey: "com.zevwings.animation.rotate")
         
         let headAnimation = CABasicAnimation()
         headAnimation.keyPath = "strokeStart"
@@ -142,92 +122,81 @@ public extension ZVActivityIndicatorView {
         animations.animations = [headAnimation, tailAnimation, endHeadAnimation, endTailAnimation]
         animations.repeatCount = Float.infinity
         animations.isRemovedOnCompletion = false
-        _sharpeLayer?.add(animations, forKey: "com.zevwings.animation.stroke")
+        animationLayer?.add(animations, forKey: "com.zevwings.animation.stroke")
         
         isAnimating = true
-        
-        if _hidesWhenStopped { isHidden = false }
+        if hidesWhenStopped { isHidden = false }
     }
     
     func stopAnimating() {
         
-        if !isAnimating { return }
+        guard isAnimating else { return }
         
-        _sharpeLayer?.removeAnimation(forKey: "com.zevwings.animation.rotate")
-        _sharpeLayer?.removeAnimation(forKey: "com.zevwings.animation.stroke")
+        animationLayer?.removeAnimation(forKey: "com.zevwings.animation.rotate")
+        animationLayer?.removeAnimation(forKey: "com.zevwings.animation.stroke")
         
         isAnimating = false;
-        
-        if _hidesWhenStopped { isHidden = true }
+        if hidesWhenStopped { isHidden = true }
     }
     
 }
 
 private extension ZVActivityIndicatorView {
     
-    func _prepare() {
+    func prepare() {
         
         self.backgroundColor = .clear
 
         self.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         
-        if !_isObserved { _addObserver() }
+        if !isObserved { addObserver() }
         
-        if (_sharpeLayer == nil) {
-            _sharpeLayer = CAShapeLayer()
-            layer.addSublayer(_sharpeLayer!)
+        if (animationLayer == nil) {
+            animationLayer = CAShapeLayer()
+            layer.addSublayer(animationLayer!)
         }
         
-        _sharpeLayer?.fillColor = nil
-        _sharpeLayer?.strokeColor = _color?.cgColor
-        _sharpeLayer?.lineWidth = _strokeWidth
-        _sharpeLayer?.strokeStart = 0
-        _sharpeLayer?.strokeEnd = 0.0
+        animationLayer?.fillColor = nil
+        animationLayer?.strokeColor = strokColor?.cgColor
+        animationLayer?.lineWidth = strokeWidth
+        animationLayer?.strokeStart = 0
+        animationLayer?.strokeEnd = 0.0
     }
     
-    func _updateSharpeLayer() {
+    func updateSharpeLayer() {
         
-        if frame == .zero { return }
-        
-        _sharpeLayer?.frame = .init(x: 0, y: 0, width: frame.width, height: frame.height)
+        guard frame != .zero else { return }
+        animationLayer?.frame = .init(x: 0, y: 0, width: frame.width, height: frame.height)
 
         let center = CGPoint(x: bounds.midX, y: bounds.midY)
-        let radius = min(bounds.width / 2, bounds.height / 2) - _strokeWidth / 2
+        let radius = min(bounds.width / 2, bounds.height / 2) - strokeWidth / 2
         let startAngle: CGFloat = 0.0
         let endAngle = CGFloat(2 * Double.pi)
         
-        let bezierPath = UIBezierPath(arcCenter: center,
-                                      radius: radius,
-                                      startAngle: startAngle,
-                                      endAngle: endAngle,
-                                      clockwise: true)
+        let bezierPath = UIBezierPath(arcCenter: center, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: true)
         
-        _sharpeLayer?.path = bezierPath.cgPath
+        animationLayer?.path = bezierPath.cgPath
     }
     
-    func _addObserver() {
-        
-        if _isObserved { return }
-        
-        _isObserved = true
-        
+    func addObserver() {
+        guard isObserved == false else { return }
+        isObserved = true
         NotificationCenter.default.addObserver(self,
-                                               selector: #selector(_resetAnimating),
+                                               selector: #selector(resetAnimating),
                                                name: NSNotification.Name.UIApplicationDidBecomeActive,
                                                object: nil)
     }
     
-    func _removeObserver() {
-        
-        _isObserved = false
-        
+    func removeObserver() {
+        guard isObserved else { return }
+        isObserved = false
         NotificationCenter.default.addObserver(self,
-                                               selector: #selector(_resetAnimating),
+                                               selector: #selector(resetAnimating),
                                                name: NSNotification.Name.UIApplicationDidBecomeActive,
                                                object: nil)
     }
     
-    @objc func _resetAnimating() {
+    @objc func resetAnimating() {
         
         if isAnimating {
             stopAnimating()

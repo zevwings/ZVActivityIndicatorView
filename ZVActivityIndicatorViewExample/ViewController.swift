@@ -11,30 +11,40 @@ import ZVActivityIndicatorView
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var activityIndicatorView: ZVActivityIndicatorView!
+    @IBOutlet weak var innerActivityIndicatorView: ZVActivityIndicatorView!
     
-    var indicator: ZVActivityIndicatorView?
+    var outerActivityIndicatorView: ZVActivityIndicatorView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        activityIndicatorView.color = .black
-        activityIndicatorView.startAnimating()
+        innerActivityIndicatorView.strokColor = .white
+        innerActivityIndicatorView.startAnimating()
+        innerActivityIndicatorView.hidesWhenStopped = false
         
         let x = view.frame.width / 2.0 - 158.0 / 2.0
         let y = view.frame.height / 2.0 - 158.0 / 2.0
         
-        indicator = ZVActivityIndicatorView(frame: .init(x: x, y: y, width: 158, height: 158))
-        indicator?.color = .black
-        indicator?.progress = 0.75
-        indicator?.startAnimating()
-        view.addSubview(indicator!)
+        outerActivityIndicatorView = ZVActivityIndicatorView(frame: .init(x: x, y: y, width: 158, height: 158))
+        outerActivityIndicatorView?.strokColor = .black
+        outerActivityIndicatorView?.progress = 0.75
+        outerActivityIndicatorView?.strokeWidth = 3.0;
+        outerActivityIndicatorView?.startAnimating()
+        view.addSubview(outerActivityIndicatorView!)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
 
-
+    @IBAction func startAnimating(_ sender: Any) {
+        innerActivityIndicatorView.startAnimating()
+        outerActivityIndicatorView?.startAnimating()
+    }
+    
+    @IBAction func stopAnimating(_ sender: Any) {
+        innerActivityIndicatorView.stopAnimating()
+        outerActivityIndicatorView?.stopAnimating()
+    }
 }
 
