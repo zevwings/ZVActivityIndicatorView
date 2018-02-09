@@ -14,7 +14,7 @@ public class ZVActivityIndicatorView: UIView {
 
     public var strokeWidth: CGFloat = 1.0 {
         didSet {
-            updateSharpeLayer()
+            updateAnimationLayer()
         }
     }
     
@@ -55,7 +55,7 @@ public class ZVActivityIndicatorView: UIView {
     
     override public func layoutSubviews() {
         super.layoutSubviews()
-        updateSharpeLayer()
+        updateAnimationLayer()
     }
 }
 
@@ -163,7 +163,7 @@ private extension ZVActivityIndicatorView {
         animationLayer?.strokeEnd = 0.0
     }
     
-    func updateSharpeLayer() {
+    func updateAnimationLayer() {
         
         guard frame != .zero else { return }
         animationLayer?.frame = .init(x: 0, y: 0, width: frame.width, height: frame.height)
