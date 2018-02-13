@@ -14,6 +14,7 @@ public class ZVActivityIndicatorView: UIView {
 
     public var strokeWidth: CGFloat = 1.0 {
         didSet {
+            animationLayer?.lineWidth = strokeWidth
             updateAnimationLayer()
         }
     }

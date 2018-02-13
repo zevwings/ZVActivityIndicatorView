@@ -28,7 +28,7 @@ class ViewController: UIViewController {
         outerActivityIndicatorView = ZVActivityIndicatorView(frame: .init(x: x, y: y, width: 158, height: 158))
         outerActivityIndicatorView?.strokColor = .black
         outerActivityIndicatorView?.progress = 0.75
-        outerActivityIndicatorView?.strokeWidth = 3.0;
+        outerActivityIndicatorView?.strokeWidth = 10.0;
         outerActivityIndicatorView?.startAnimating()
         view.addSubview(outerActivityIndicatorView!)
     }
