@@ -8,7 +8,7 @@
 
 public class ZVActivityIndicatorView: UIView {
     
-    public private(set) var isAnimating: Bool = false
+    public internal(set) var isAnimating: Bool = false
     public var duration: TimeInterval = 1.25
     public var timingFunction: CAMediaTimingFunction?
 
