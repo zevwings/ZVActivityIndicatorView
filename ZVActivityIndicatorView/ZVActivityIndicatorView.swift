@@ -8,7 +8,7 @@
 
 public class ZVActivityIndicatorView: UIView {
     
-    public internal(set) var isAnimating: Bool = false
+    public private(set) var isAnimating: Bool = false
     public var duration: TimeInterval = 1.25
     public var timingFunction: CAMediaTimingFunction?
 
@@ -37,8 +37,8 @@ public class ZVActivityIndicatorView: UIView {
         }
     }
 
-    var animationLayer: CAShapeLayer?
-    var isObserved: Bool = false
+    private var animationLayer: CAShapeLayer?
+    private var isObserved: Bool = false
     
     deinit {
         removeObserver()
