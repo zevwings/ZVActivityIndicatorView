@@ -37,8 +37,8 @@ public class ZVActivityIndicatorView: UIView {
         }
     }
 
-    private var animationLayer: CAShapeLayer?
-    private var isObserved: Bool = false
+    var animationLayer: CAShapeLayer?
+    var isObserved: Bool = false
     
     deinit {
         removeObserver()
