@@ -191,10 +191,7 @@ private extension ZVActivityIndicatorView {
     func removeObserver() {
         guard isObserved else { return }
         isObserved = false
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(resetAnimating),
-                                               name: NSNotification.Name.UIApplicationDidBecomeActive,
-                                               object: nil)
+        NotificationCenter.default.removeObserver(self)
     }
     
     @objc func resetAnimating() {
