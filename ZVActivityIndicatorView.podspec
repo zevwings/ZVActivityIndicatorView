@@ -9,27 +9,20 @@
 Pod::Spec.new do |s|
 
   s.name         = "ZVActivityIndicatorView"
-  
   s.version      = "0.1.3"
-  
   s.summary      = "An activity indicator for swift"
-
+  s.swift_version = '4.2'
+  
   s.description  = <<-DESC
                    An activity indicator for swift.
                    DESC
-
+  
   s.homepage     = "https://github.com/zevwings/ZVActivityIndicatorView"
-
   s.license      = { :type => "MIT", :file => "LICENSE" }
-
   s.author       = { "zevwings" => "zev.wings@gmail.com" }
-
   s.platform     = :ios, "8.0"
-
   s.source       = { :git => "https://github.com/zevwings/ZVActivityIndicatorView.git", :tag => "#{s.version}" }
-
   s.source_files = "ZVActivityIndicatorView", "ZVActivityIndicatorView/**/*.{h,m,swift}"
-
   s.requires_arc = true
 
 end
