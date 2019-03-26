@@ -8,12 +8,11 @@
 
 Pod::Spec.new do |s|
 
-  s.name         = "ZVActivityIndicatorView"
-  s.version      = "0.1.5"
-  s.summary      = "An activity indicator for swift"
-  s.swift_version = '5.0'
+  s.name          = "ZVActivityIndicatorView"
+  s.version       = "0.1.5"
+  s.summary       = "An activity indicator for swift"
   
-  s.description  = <<-DESC
+  s.description   = <<-DESC
                    An activity indicator for swift.
                    DESC
   
