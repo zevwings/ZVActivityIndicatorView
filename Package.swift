@@ -21,9 +21,6 @@ let package = Package(
         .target(
             name: "ZVActivityIndicatorView",
             dependencies: [],
-            path: "ZVActivityIndicatorView"),
-        .testTarget(
-            name: "ZVActivityIndicatorViewTests",
-            dependencies: ["ZVActivityIndicatorView"]),
+            path: "ZVActivityIndicatorView")
     ]
 )
