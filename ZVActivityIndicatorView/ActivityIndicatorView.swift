@@ -6,6 +6,8 @@
 //  Copyright © 2018 zevwings. All rights reserved.
 //
 
+import UIKit
+
 @available(*, deprecated, renamed: "ActivityIndicatorView", message: "renamed ActivityIndicatorView will remove in future")
 public typealias ZVActivityIndicatorView = ActivityIndicatorView
 
