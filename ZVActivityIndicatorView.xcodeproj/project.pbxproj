@@ -15,7 +15,7 @@
 		4D516F2D202D33410071CF4D /* ZVActivityIndicatorView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D75A4C5201833AE00775C60 /* ZVActivityIndicatorView.framework */; };
 		4D516F2E202D33410071CF4D /* ZVActivityIndicatorView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4D75A4C5201833AE00775C60 /* ZVActivityIndicatorView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4D75A4CA201833AE00775C60 /* ZVActivityIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D75A4C8201833AE00775C60 /* ZVActivityIndicatorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4D75A4D1201833E500775C60 /* ZVActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D75A4D0201833E500775C60 /* ZVActivityIndicatorView.swift */; };
+		4D75A4D1201833E500775C60 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D75A4D0201833E500775C60 /* ActivityIndicatorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,7 +53,7 @@
 		4D75A4C5201833AE00775C60 /* ZVActivityIndicatorView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ZVActivityIndicatorView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D75A4C8201833AE00775C60 /* ZVActivityIndicatorView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZVActivityIndicatorView.h; sourceTree = "<group>"; };
 		4D75A4C9201833AE00775C60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4D75A4D0201833E500775C60 /* ZVActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZVActivityIndicatorView.swift; sourceTree = "<group>"; };
+		4D75A4D0201833E500775C60 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,7 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				4D75A4C8201833AE00775C60 /* ZVActivityIndicatorView.h */,
-				4D75A4D0201833E500775C60 /* ZVActivityIndicatorView.swift */,
+				4D75A4D0201833E500775C60 /* ActivityIndicatorView.swift */,
 				4D75A4C9201833AE00775C60 /* Info.plist */,
 			);
 			path = ZVActivityIndicatorView;
@@ -242,7 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D75A4D1201833E500775C60 /* ZVActivityIndicatorView.swift in Sources */,
+				4D75A4D1201833E500775C60 /* ActivityIndicatorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
