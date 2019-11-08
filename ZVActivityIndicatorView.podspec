@@ -9,12 +9,12 @@
 Pod::Spec.new do |s|
 
   s.name          = "ZVActivityIndicatorView"
-  s.version       = "0.2.1"
-  s.summary       = "An activity indicator for swift"
+  s.version       = "0.2.2"
+  s.summary       = "ZVActivityIndicatorView is an activity indicator substitute control."
   s.swift_version = '5.0'
   
   s.description   = <<-DESC
-                   An activity indicator for swift.
+                   ZVActivityIndicatorView is an activity indicator substitute control， e
                    DESC
   
   s.homepage     = "https://github.com/zevwings/ZVActivityIndicatorView"
