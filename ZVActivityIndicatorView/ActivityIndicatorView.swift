@@ -6,12 +6,14 @@
 //  Copyright © 2018 zevwings. All rights reserved.
 //
 
+#if !os(macOS)
+
 import UIKit
 
-@available(*, deprecated, renamed: "ActivityIndicatorView", message: "renamed ActivityIndicatorView will remove in future")
-public typealias ZVActivityIndicatorView = ActivityIndicatorView
+@available(*, deprecated, renamed: "ZVActivityIndicatorView", message: "renamed ActivityIndicatorView will remove in future")
+public typealias ActivityIndicatorView = ZVActivityIndicatorView
 
-public class ActivityIndicatorView: UIView {
+public class ZVActivityIndicatorView: UIView {
     
     public private(set) var isAnimating: Bool = false
     public var duration: TimeInterval = 1.25
@@ -65,7 +67,7 @@ public class ActivityIndicatorView: UIView {
     }
 }
 
-extension ActivityIndicatorView {
+extension ZVActivityIndicatorView {
 
     override public var tintColor: UIColor! {
         get {
@@ -78,7 +80,7 @@ extension ActivityIndicatorView {
     }
 }
 
-public extension ActivityIndicatorView {
+public extension ZVActivityIndicatorView {
     
     func startAnimating() {
         
@@ -147,7 +149,7 @@ public extension ActivityIndicatorView {
     
 }
 
-private extension ActivityIndicatorView {
+private extension ZVActivityIndicatorView {
     
     func prepare() {
         
@@ -207,3 +209,5 @@ private extension ActivityIndicatorView {
         }
     }
 }
+
+#endif
