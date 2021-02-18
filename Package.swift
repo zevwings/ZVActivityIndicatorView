@@ -5,11 +5,12 @@ import PackageDescription
 
 let package = Package(
     name: "ZVActivityIndicatorView",
-    platforms: [.iOS(.v8)],
+    platforms: [.iOS(.v9)],
     products: [
         .library(
             name: "ZVActivityIndicatorView",
-            targets: ["ZVActivityIndicatorView"]),
+            targets: ["ZVActivityIndicatorView"]
+        )
     ],
     dependencies: [
     ],
@@ -17,7 +18,8 @@ let package = Package(
         .target(
             name: "ZVActivityIndicatorView",
             dependencies: [],
-            path: "ZVActivityIndicatorView")
+            path: "ZVActivityIndicatorView"
+        )
     ],
     swiftLanguageVersions: [.v5]
 )
