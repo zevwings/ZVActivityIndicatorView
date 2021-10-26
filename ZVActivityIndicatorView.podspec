@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name          = "ZVActivityIndicatorView"
-  s.version       = "0.2.3"
+  s.version       = "1.0.0"
   s.summary       = "UIActivityIndicator substitute control."
   s.swift_version = '5.0'
   
