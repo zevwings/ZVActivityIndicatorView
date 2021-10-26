@@ -17,7 +17,6 @@ let package = Package(
     targets: [
         .target(
             name: "ZVActivityIndicatorView",
-            dependencies: [],
             path: "ZVActivityIndicatorView"
         )
     ],
