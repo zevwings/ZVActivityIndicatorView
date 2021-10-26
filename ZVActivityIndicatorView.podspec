@@ -10,11 +10,11 @@ Pod::Spec.new do |s|
 
   s.name          = "ZVActivityIndicatorView"
   s.version       = "0.2.3"
-  s.summary       = "ZVActivityIndicatorView is an activity indicator substitute control."
+  s.summary       = "UIActivityIndicator substitute control."
   s.swift_version = '5.0'
   
   s.description   = <<-DESC
-                   ZVActivityIndicatorView is an activity indicator substitute control， e
+                   ZVActivityIndicatorView is an activity indicator substitute control.
                    DESC
   
   s.homepage     = "https://github.com/zevwings/ZVActivityIndicatorView"
@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
   s.author       = { "zevwings" => "zev.wings@gmail.com" }
   s.platform     = :ios, "9.0"
   s.source       = { :git => "https://github.com/zevwings/ZVActivityIndicatorView.git", :tag => "#{s.version}" }
-  s.source_files = "ZVActivityIndicatorView", "ZVActivityIndicatorView/**/*.{h,m,swift}"
+  s.source_files = "Sources/**/*.{h,m,swift}"
   s.requires_arc = true
 
 end
